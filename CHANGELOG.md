@@ -130,7 +130,7 @@ All notable public changes to this project are documented in this file. Detailed
 ## [v0.1.9] - 2026-03-25
 
 ### Added
-- Added the first public Agent Modelica repair foundation: OpenModelica validation, deterministic repair scaffolding, source-blind and multistep evaluation surfaces, guided-search modules, planner/replan modules, workspace isolation, and baseline/generalization benchmark utilities.
+- Added the first public Agent Modelica foundation: OpenModelica validation, deterministic scaffolding, source-blind and multistep evaluation surfaces, guided-search modules, planner/replan modules, workspace isolation, and baseline/generalization benchmark utilities.
 - Added modularization work that split large executor responsibilities into separately testable components.
 
 ### Changed
@@ -145,7 +145,7 @@ All notable public changes to this project are documented in this file. Detailed
 ## [v0.1.0] - 2026-02-20
 
 ### Added
-- Initial MVP for agent-in-the-loop Modelica repair workflows.
+- Initial MVP for agent-in-the-loop Modelica workflows.
 - Added the first governance loop for proposal-driven execution, evidence collection, regression gating, policy decisions, and human-readable reporting.
 
 ### Validation
