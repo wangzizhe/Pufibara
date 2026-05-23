@@ -16,7 +16,7 @@
 
 All agents use the same foundation model family and are evaluated under the same benchmark and wall-clock conditions.
 
-GateForge outperforms both general-purpose agent baselines overall, with the strongest margin on medium and hard Modelica workflows. 
+GateForge outperforms SOTA coding agents, with the strongest margin on medium and hard Modelica workflows.
 
 | Agent | Total | easy | medium | hard |
 | --- | ---: | ---: | ---: | ---: |
@@ -24,7 +24,7 @@ GateForge outperforms both general-purpose agent baselines overall, with the str
 | Claude Code | 123/132 | 21/21 | 55/56 | 47/55 |
 | OpenCode | 120/132 | 21/21 | 50/56 | 49/55 |
 
-GateForge solved more tasks than both baselines. Compared with OpenCode, it used fewer tokens and finished faster; compared with Claude Code, it finished faster while solving more cases.
+It beat both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
 
 | Agent | reported tokens* | wall time |
 | --- | ---: | ---: |
