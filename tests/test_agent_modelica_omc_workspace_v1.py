@@ -10,6 +10,7 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from gateforge.agent_modelica_omc_workspace_v1 import (
     WorkspaceModelLayout,
@@ -21,6 +22,7 @@ from gateforge.agent_modelica_omc_workspace_v1 import (
     norm_path_text,
     prepare_workspace_model_layout,
     rel_mos_path,
+    run_check_and_simulate,
     temporary_workspace,
 )
 
@@ -172,6 +174,34 @@ class TestClassifyFailure(unittest.TestCase):
         error_type, reason = classify_failure("Error: underconstrained", False, False)
         self.assertNotEqual(error_type, "")
         self.assertIsInstance(reason, str)
+
+
+class TestRunCheckAndSimulateScript(unittest.TestCase):
+    def test_includes_requested_solver_method(self):
+        output = (
+            "Check of ModelA completed successfully.\n"
+            'record SimulationResult\n  resultFile = "ModelA_res.mat",\n'
+            '  messages = "LOG_SUCCESS | The simulation finished successfully.",\n'
+            "end SimulationResult;\n"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch(
+                "gateforge.agent_modelica_omc_workspace_v1.run_omc_script_local",
+                return_value=(0, output),
+            ) as runner:
+                run_check_and_simulate(
+                    workspace=Path(tmp),
+                    model_load_files=["ModelA.mo"],
+                    model_name="ModelA",
+                    timeout_sec=20,
+                    backend="omc",
+                    docker_image="unused",
+                    stop_time=1.0,
+                    intervals=100,
+                    method="ida",
+                )
+        script = runner.call_args.args[0]
+        self.assertIn('method="ida"', script)
 
 
 # ---------------------------------------------------------------------------

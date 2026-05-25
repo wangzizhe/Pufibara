@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import os
 import re
+import json
 import shutil
 import atexit
 import signal
@@ -377,6 +378,7 @@ def run_check_and_simulate(
     docker_image: str,
     stop_time: float,
     intervals: int,
+    method: str = "",
     extra_model_loads: list[str] | None = None,
 ) -> tuple[int | None, str, bool, bool]:
     """Compile *and* simulate a model; return ``(rc, output, check_ok, simulate_ok)``.
@@ -394,11 +396,13 @@ def run_check_and_simulate(
     load_lines = "".join(
         [f'loadFile("{item}");\n' for item in model_load_files if str(item or "").strip()]
     )
+    method_text = str(method or "").strip()
+    solver_arg = f", method={json.dumps(method_text)}" if method_text else ""
     script = (
         bootstrap
         + load_lines
         + f"checkModel({model_name});\n"
-        + f"simulate({model_name}, stopTime={float(stop_time)}, numberOfIntervals={int(intervals)});\n"
+        + f"simulate({model_name}, stopTime={float(stop_time)}, numberOfIntervals={int(intervals)}{solver_arg});\n"
         + "getErrorString();\n"
     )
     if backend == "omc":

@@ -748,6 +748,7 @@ def _run_omc_simulate(
     candidate_path: Path,
     stop_time: float,
     intervals: int,
+    method: str = "",
     target_model_name: str = "",
     external_library_context: dict[str, str] | None = None,
 ) -> tuple[str, bool, bool]:
@@ -774,6 +775,7 @@ def _run_omc_simulate(
         docker_image=DOCKER_IMAGE,
         stop_time=float(stop_time),
         intervals=int(intervals),
+        method=str(method or ""),
         extra_model_loads=[],
     )
     return str(output or ""), bool(check_ok), bool(simulate_ok)
