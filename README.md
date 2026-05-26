@@ -32,7 +32,7 @@ It beat both baselines: executing faster with fewer tokens than OpenCode, and fi
 | Claude Code | ~15.9M | ~35,191s |
 | OpenCode | ~66.1M | ~20,843s |
 
-* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may omit local context management, compression, retries, or tool-output handling costs.
+\* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may omit local context management, compression, retries, or tool-output handling costs.
 
 ## Legal Notice
 
