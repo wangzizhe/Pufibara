@@ -6,17 +6,26 @@
   <a href="LICENSE" style="text-decoration:none;"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License" /></a>&nbsp;
   <a href="https://www.python.org/" style="text-decoration:none;"><img src="https://img.shields.io/badge/python-%3E%3D3.10-3776AB.svg" alt="Python >= 3.10" /></a>
 </p>
-<p align="center" style="margin: 0.75rem auto 1rem; max-width: 920px; padding: 0.75rem 1rem; border: 1px solid #d0d7de; border-radius: 8px; background: #f6f8fa; font-size: 1.25rem;">
-  <strong>AI Agent for Physical Systems Modeling</strong>
+<p align="center" style="margin: 0.75rem auto 1rem; max-width: 920px; padding: 0.75rem 1rem; border: 1px solid #d0d7de; border-radius: 8px; background: #f6f8fa;">
+  <strong>AI Agents for Physical Systems Modeling</strong>
 </p>
 
 ## Agentic Modelica Workflow Benchmark
 
-*Benchmark snapshot as of May 21, 2026.*
+*Benchmark snapshot as of May 29, 2026.*
 
 All agents use the same foundation model family and are evaluated under the same benchmark and wall-clock conditions.
 
-GateForge outperforms SOTA coding agents, with the strongest margin on medium and hard Modelica workflows.
+GateForge is currently evaluated on two Modelica workflow families:
+
+| Workflow family | Agent task | Validation |
+| --- | --- | --- |
+| Model repair | Fix an existing broken Modelica model | Model checking and simulation |
+| Model generation | Create a complete executable Modelica model from a task brief | Model checking, simulation, and physical behavior analysis |
+
+GateForge outperforms SOTA coding agents across both repair and generation workflows, with the clearest separation on harder Modelica tasks.
+
+### Model Repair
 
 | Agent | Total | easy | medium | hard |
 | --- | ---: | ---: | ---: | ---: |
@@ -24,7 +33,7 @@ GateForge outperforms SOTA coding agents, with the strongest margin on medium an
 | Claude Code | 123/132 | 21/21 | 55/56 | 47/55 |
 | OpenCode | 120/132 | 21/21 | 50/56 | 49/55 |
 
-It beat both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
+GateForge beat both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
 
 | Agent | reported tokens* | wall time |
 | --- | ---: | ---: |
@@ -32,7 +41,23 @@ It beat both baselines: executing faster with fewer tokens than OpenCode, and fi
 | Claude Code | ~15.9M | ~35,191s |
 | OpenCode | ~66.1M | ~20,843s |
 
-\* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may omit local context management, compression, retries, or tool-output handling costs.
+### Model Generation
+
+| Agent | Total | easy | medium | hard |
+| --- | ---: | ---: | ---: | ---: |
+| GateForge | 21/22 | 2/2 | 10/10 | 9/10 |
+| Claude Code | 19/22 | 2/2 | 10/10 | 7/10 |
+| OpenCode | 18/22 | 2/2 | 10/10 | 6/10 |
+
+GateForge led the generation benchmark while using fewer reported tokens and less wall time than both baselines.
+
+| Agent | reported tokens* | wall time |
+| --- | ---: | ---: |
+| GateForge | ~1.31M | ~1,343s |
+| Claude Code | ~1.57M | ~4,474s |
+| OpenCode | ~9.81M | ~3,693s |
+
+\* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may include or omit local context management, compression, retries, and tool-output handling costs.
 
 ## Legal Notice
 
