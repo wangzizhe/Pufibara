@@ -33,7 +33,7 @@ GateForge outperforms SOTA coding agents across both repair and generation workf
 | Claude Code | 123/132 | 21/21 | 55/56 | 47/55 |
 | OpenCode | 120/132 | 21/21 | 50/56 | 49/55 |
 
-GateForge beat both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
+GateForge beats both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
 
 | Agent | reported tokens* | wall time |
 | --- | ---: | ---: |
@@ -49,7 +49,7 @@ GateForge beat both baselines: executing faster with fewer tokens than OpenCode,
 | Claude Code | 19/22 | 2/2 | 10/10 | 7/10 |
 | OpenCode | 18/22 | 2/2 | 10/10 | 6/10 |
 
-GateForge led the generation benchmark while using fewer reported tokens and less wall time than both baselines.
+GateForge leads the generation benchmark while using fewer reported tokens and less wall time than both baselines.
 
 | Agent | reported tokens* | wall time |
 | --- | ---: | ---: |
