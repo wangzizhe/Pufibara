@@ -12,18 +12,19 @@
 
 ## Agentic Modelica Workflow Benchmark
 
-*Benchmark snapshot as of May 29, 2026.*
+*Benchmark snapshot as of June 26, 2026.*
 
 All agents use the same foundation model family and are evaluated under the same benchmark and wall-clock conditions.
 
-GateForge is currently evaluated on two Modelica workflow families:
+GateForge is currently evaluated on three Modelica workflow families:
 
 | Workflow family | Agent task | Validation |
 | --- | --- | --- |
 | Model repair | Fix an existing broken Modelica model | Model checking and simulation |
 | Model generation | Create a complete executable Modelica model from a task brief | Model checking, simulation, and physical behavior analysis |
+| Model tuning | Tune model parameters to match target physical behavior | Model checking, simulation, and hidden behavior verification |
 
-GateForge outperforms SOTA coding agents across both repair and generation workflows, with the clearest separation on harder Modelica tasks.
+GateForge outperforms SOTA coding agents across repair, generation, and tuning workflows, with the clearest separation on harder Modelica tasks.
 
 ### Model Repair
 
@@ -56,6 +57,22 @@ GateForge leads the generation benchmark while using fewer reported tokens and l
 | GateForge | ~1.31M | ~1,343s |
 | Claude Code | ~1.57M | ~4,474s |
 | OpenCode | ~9.81M | ~3,693s |
+
+### Model Tuning
+
+| Agent | Total | easy | medium | hard |
+| --- | ---: | ---: | ---: | ---: |
+| GateForge | 35/43 | 4/4 | 24/24 | 7/15 |
+| Claude Code | 33/43 | 4/4 | 24/24 | 5/15 |
+| OpenCode | 33/43 | 4/4 | 23/24 | 6/15 |
+
+GateForge leads the tuning benchmark overall, with the main separation on harder physical-system tuning tasks.
+
+| Agent | reported tokens* | wall time |
+| --- | ---: | ---: |
+| GateForge | ~19.1M | ~7,348s |
+| Claude Code | ~3.91M | ~13,135s |
+| OpenCode | ~40.1M | ~12,457s |
 
 \* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may include or omit local context management, compression, retries, and tool-output handling costs.
 
