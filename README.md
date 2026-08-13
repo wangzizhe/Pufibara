@@ -12,9 +12,9 @@
 
 ## Agentic Modelica Workflow Benchmark
 
-*Benchmark snapshot as of June 26, 2026.*
+*Benchmark snapshot as of August 13, 2026.*
 
-All agents use the same foundation model family and are evaluated under the same benchmark and wall-clock conditions.
+GateForge and Claude Code use the same foundation model family.
 
 GateForge is currently evaluated on three Modelica workflow families:
 
@@ -22,9 +22,9 @@ GateForge is currently evaluated on three Modelica workflow families:
 | --- | --- | --- |
 | Model repair | Fix an existing broken Modelica model | Model checking and simulation |
 | Model generation | Create a complete executable Modelica model from a task brief | Model checking, simulation, and physical behavior analysis |
-| Model tuning | Tune model parameters to match target physical behavior | Model checking, simulation, and hidden behavior verification |
+| Model tuning | Calibrate parameters of an existing Modelica model | Model checking, simulation, and held-out behavioral validation |
 
-GateForge outperforms SOTA coding agents across repair, generation, and tuning workflows, with the clearest separation on harder Modelica tasks.
+GateForge records a higher observed success rate than Claude Code across all three workflow families, with the clearest separation on harder Modelica tasks.
 
 ### Model Repair
 
@@ -32,49 +32,43 @@ GateForge outperforms SOTA coding agents across repair, generation, and tuning w
 | --- | ---: | ---: | ---: | ---: |
 | GateForge | 130/132 | 21/21 | 56/56 | 53/55 |
 | Claude Code | 123/132 | 21/21 | 55/56 | 47/55 |
-| OpenCode | 120/132 | 21/21 | 50/56 | 49/55 |
 
-GateForge beats both baselines: executing faster with fewer tokens than OpenCode, and finishing quicker with a higher success rate than Claude Code.
+GateForge solves seven more cases and records substantially less total sequential wall time.
 
-| Agent | reported tokens* | wall time |
-| --- | ---: | ---: |
-| GateForge | ~39.7M | ~14,658s |
-| Claude Code | ~15.9M | ~35,191s |
-| OpenCode | ~66.1M | ~20,843s |
+| Agent | wall time |
+| --- | ---: |
+| GateForge | ~14,650s (4.07h) |
+| Claude Code | ~35,191s (9.78h) |
 
 ### Model Generation
 
 | Agent | Total | easy | medium | hard |
 | --- | ---: | ---: | ---: | ---: |
-| GateForge | 21/22 | 2/2 | 10/10 | 9/10 |
-| Claude Code | 19/22 | 2/2 | 10/10 | 7/10 |
-| OpenCode | 18/22 | 2/2 | 10/10 | 6/10 |
+| GateForge | 35/50 | 2/2 | 10/10 | 23/38 |
+| Claude Code | 27/50 | 2/2 | 10/10 | 15/38 |
 
-GateForge leads the generation benchmark while using fewer reported tokens and less wall time than both baselines.
+GateForge solves eight more cases and records lower total wall time.
 
-| Agent | reported tokens* | wall time |
-| --- | ---: | ---: |
-| GateForge | ~1.31M | ~1,343s |
-| Claude Code | ~1.57M | ~4,474s |
-| OpenCode | ~9.81M | ~3,693s |
+| Agent | wall time |
+| --- | ---: |
+| GateForge | ~11,176s (3.10h) |
+| Claude Code | ~13,865s (3.85h) |
 
 ### Model Tuning
 
 | Agent | Total | easy | medium | hard |
 | --- | ---: | ---: | ---: | ---: |
-| GateForge | 35/43 | 4/4 | 24/24 | 7/15 |
-| Claude Code | 33/43 | 4/4 | 24/24 | 5/15 |
-| OpenCode | 33/43 | 4/4 | 23/24 | 6/15 |
+| GateForge | 37/50 | 4/4 | 24/24 | 9/22 |
+| Claude Code | 34/50 | 4/4 | 23/24 | 7/22 |
 
-GateForge leads the tuning benchmark overall, with the main separation on harder physical-system tuning tasks.
+GateForge solves three more cases and records lower total wall time.
 
-| Agent | reported tokens* | wall time |
-| --- | ---: | ---: |
-| GateForge | ~19.1M | ~7,348s |
-| Claude Code | ~3.91M | ~13,135s |
-| OpenCode | ~40.1M | ~12,457s |
+| Agent | wall time |
+| --- | ---: |
+| GateForge | ~10,711s (2.98h) |
+| Claude Code | ~20,886s (5.80h) |
 
-\* Reported tokens are runner-reported estimates. GateForge records provider usage directly, while other runners may include or omit local context management, compression, retries, and tool-output handling costs.
+Wall time is the total recorded sequential case runtime and excludes infrastructure-only attempts.
 
 ## Legal Notice
 
