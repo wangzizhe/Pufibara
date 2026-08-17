@@ -24,6 +24,7 @@ jobs:
         run: |
           python -m unittest \
             tests.test_llm_provider_adapter \
+            tests.test_experiment_artifact_cleanup_v1 \
             tests.test_agent_modelica_agent_profile_registry_v1 \
             tests.test_agent_modelica_omc_workspace_v1 \
             tests.test_agent_modelica_workspace_style_probe_v0_67 \
