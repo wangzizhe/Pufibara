@@ -10,6 +10,10 @@
   <strong>AI Agents for Physical Systems Modeling</strong>
 </p>
 
+<p align="center">
+  <img src="docs/assets/pufibara.png" alt="Pufibara — AI Agent for Physical Systems Modeling" width="720" />
+</p>
+
 ## Agentic Modelica Workflow Benchmark
 
 *Benchmark snapshot as of August 17, 2026.*
@@ -85,6 +89,10 @@ GateForge vs Claude Code: **Pass rate ↑ 8.3% · Tokens ↓ 76.4% · Runtime �
 *Metrics use relative pass-rate improvement, matched logical-token accounting, and sequential runtime excluding infrastructure-only attempts.*
 
 Across these benchmark runs, GateForge's prompt-cache management achieved a **90%–93% cache hit rate**, enabling efficient context reuse across long-running Modelica workflows.
+
+<p align="center">
+  <img src="docs/assets/pufibara-teaching.png" alt="Pufibara explaining physical-system models" width="720" />
+</p>
 
 ## Legal Notice
 
