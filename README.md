@@ -1,4 +1,7 @@
-# Pufibara — AI Agent for Physical Systems Modeling
+# Pufibara
+
+<h3 align="center">A State-of-the-Art AI Agent for Physical Systems Modeling</h3>
+<p align="center">Currently focused on Modelica workflows</p>
 
 <p align="center">
   <a href="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml" style="text-decoration:none;"><img src="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>&nbsp;
@@ -10,11 +13,14 @@
   <img src="docs/assets/pufibara.png" alt="Pufibara — AI Agent for Physical Systems Modeling" width="480" />
 </p>
 
-<p align="center"><strong>Current research release: v0.213.979</strong></p>
+<h3 align="center">Pufibara outperforms Claude Code across the full Modelica benchmark suite</h3>
+<p align="center">Higher pass rate &nbsp;·&nbsp; Fewer tokens &nbsp;·&nbsp; Faster runtime</p>
 
 ## Agentic Modelica Workflow Benchmark
 
 *Benchmark snapshot as of August 17, 2026.*
+
+Benchmark protocol and public demo tasks are available in the [Modelica Agent Workflow Benchmark](https://github.com/wangzizhe/modelica-agent-workflow-benchmark).
 
 Each comparison uses the same backend model for Pufibara and Claude Code.
 
@@ -79,10 +85,10 @@ Pufibara vs Claude Code: **Pass rate ↑ 23.1% · Tokens ↓ 82.4% · Runtime �
 
 | Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Pufibara** | **39/50** | 4/4 | 24/24 | 11/22 | **78.00%** | **20.5M** | **5.12h** |
-| Claude Code | 36/50 | 4/4 | 24/24 | 8/22 | 72.00% | 86.7M | 10.43h |
+| **Pufibara** | **39/50** | 4/4 | 24/24 | 11/22 | **78.00%** | **20.5M** | **3.17h** |
+| Claude Code | 36/50 | 4/4 | 24/24 | 8/22 | 72.00% | 86.7M | 6.15h |
 
-Pufibara vs Claude Code: **Pass rate ↑ 8.3% · Tokens ↓ 76.4% · Runtime ↓ 51.0%**
+Pufibara vs Claude Code: **Pass rate ↑ 8.3% · Tokens ↓ 76.4% · Runtime ↓ 48.4%**
 
 *Metrics use relative pass-rate improvement, matched logical-token accounting, and sequential runtime excluding infrastructure-only attempts.*
 
