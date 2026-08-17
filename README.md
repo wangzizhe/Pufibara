@@ -10,6 +10,8 @@
   <img src="docs/assets/pufibara.png" alt="Pufibara — AI Agent for Physical Systems Modeling" width="480" />
 </p>
 
+<p align="center"><strong>Current research release: v0.213.979</strong></p>
+
 ## Agentic Modelica Workflow Benchmark
 
 *Benchmark snapshot as of August 17, 2026.*

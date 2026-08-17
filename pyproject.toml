@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gateforge"
-version = "0.1.0"
+version = "0.213.979"
 description = "Public infrastructure for Modelica agent execution"
 readme = "README.md"
 requires-python = ">=3.10"

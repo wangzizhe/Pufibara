@@ -2,6 +2,21 @@
 
 All notable public changes to this project are documented in this file. Detailed experiment results, failure attribution, and internal analysis notes are tracked in private documentation and are intentionally not published here.
 
+## [v0.213.979] - 2026-08-17
+
+### Added
+- Added conservative cleanup for regenerable OpenModelica build products while preserving source models, simulation results, logs, and other durable evidence.
+- Added an experiment wrapper that performs cleanup after successful, failed, and interrupted commands and records a machine-readable cleanup summary.
+- Added provider-scoped prompt caching support for Anthropic requests, including stable tool-definition caching and configuration validation.
+
+### Changed
+- Hardened cleanup against short Docker Desktop bind-unmount races with bounded retries and visible persistent failures.
+- Added model-specific sampling compatibility so unsupported optional request fields can be omitted without changing other providers.
+
+### Validation
+- Added synthetic unit coverage for cleanup safety boundaries, evidence preservation, non-zero command exits, transient unmount failures, prompt-cache projection, and provider scoping.
+- This public release contains reusable runtime infrastructure only. Private tasks, evaluation artifacts, Agent policies, verifier logic, and experimental protocols remain excluded.
+
 ## [v0.138.199] - 2026-05-20
 
 ### Added
