@@ -12,68 +12,84 @@
 
 ## Agentic Modelica Workflow Benchmark
 
-*Benchmark snapshot as of August 13, 2026.*
+*Benchmark snapshot as of August 17, 2026.*
 
-GateForge and Claude Code use the same foundation model family.
+Each comparison uses the same backend model for GateForge and Claude Code.
 
-GateForge is currently evaluated on three Modelica workflow families:
+The benchmark covers three Modelica workflow families:
 
-| Workflow family | Agent task | Validation |
-| --- | --- | --- |
-| Model repair | Fix an existing broken Modelica model | Model checking and simulation |
-| Model generation | Create a complete executable Modelica model from a task brief | Model checking, simulation, and physical behavior analysis |
-| Model tuning | Calibrate parameters of an existing Modelica model | Model checking, simulation, and held-out behavioral validation |
+| Workflow | Task | Validation |
+| :--- | :--- | :--- |
+| Repair | Fix a broken model | Check + simulation |
+| Generation | Build a model from a task brief | Check + simulation + behavioral validation |
+| Tuning | Calibrate model parameters | Check + simulation + held-out validation |
 
-GateForge records a higher observed success rate than Claude Code across all three workflow families, with the clearest separation on harder Modelica tasks.
+### Backend: DeepSeek v4 Flash
 
-### Model Repair
+#### Model Repair
 
-| Agent | Total | easy | medium | hard |
-| --- | ---: | ---: | ---: | ---: |
-| GateForge | 130/132 | 21/21 | 56/56 | 53/55 |
-| Claude Code | 123/132 | 21/21 | 55/56 | 47/55 |
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **130/132** | **\|** | 21/21 | 56/56 | 53/55 | **\|** | **98.48%** | **\|** | **39.8M** | **4.07h** |
+| Claude Code | **\|** | 124/132 | **\|** | 21/21 | 56/56 | 47/55 | **\|** | 93.94% | **\|** | 227M | 9.78h |
 
-GateForge solves seven more cases and records substantially less total sequential wall time.
+GateForge vs Claude Code: **Pass rate ↑ 4.8% · Tokens ↓ 82.5% · Runtime ↓ 58.4%**
 
-| Agent | wall time |
-| --- | ---: |
-| GateForge | ~14,650s (4.07h) |
-| Claude Code | ~35,191s (9.78h) |
+#### Model Generation
 
-### Model Generation
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **35/50** | **\|** | 2/2 | 10/10 | 23/38 | **\|** | **70.00%** | **\|** | **17.0M** | **2.34h** |
+| Claude Code | **\|** | 27/50 | **\|** | 2/2 | 10/10 | 15/38 | **\|** | 54.00% | **\|** | 81.1M | 2.49h |
 
-| Agent | Total | easy | medium | hard |
-| --- | ---: | ---: | ---: | ---: |
-| GateForge | 35/50 | 2/2 | 10/10 | 23/38 |
-| Claude Code | 27/50 | 2/2 | 10/10 | 15/38 |
+GateForge vs Claude Code: **Pass rate ↑ 29.6% · Tokens ↓ 79.0% · Runtime ↓ 6.1%**
 
-GateForge solves eight more cases and records lower total wall time.
+#### Model Tuning
 
-| Agent | wall time |
-| --- | ---: |
-| GateForge | ~11,176s (3.10h) |
-| Claude Code | ~13,865s (3.85h) |
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **37/50** | **\|** | 4/4 | 24/24 | 9/22 | **\|** | **74.00%** | **\|** | **22.9M** | **3.56h** |
+| Claude Code | **\|** | 34/50 | **\|** | 4/4 | 23/24 | 7/22 | **\|** | 68.00% | **\|** | 111.6M | 6.96h |
 
-### Model Tuning
+GateForge vs Claude Code: **Pass rate ↑ 8.8% · Tokens ↓ 79.5% · Runtime ↓ 48.8%**
 
-| Agent | Total | easy | medium | hard |
-| --- | ---: | ---: | ---: | ---: |
-| GateForge | 37/50 | 4/4 | 24/24 | 9/22 |
-| Claude Code | 34/50 | 4/4 | 23/24 | 7/22 |
+### Backend: Sonnet 5
 
-GateForge solves three more cases and records lower total wall time.
+#### Model Repair
 
-| Agent | wall time |
-| --- | ---: |
-| GateForge | ~10,711s (2.98h) |
-| Claude Code | ~20,886s (5.80h) |
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **131/132** | **\|** | 21/21 | 56/56 | 54/55 | **\|** | **99.24%** | **\|** | **36.2M** | **3.68h** |
+| Claude Code | **\|** | 125/132 | **\|** | 21/21 | 56/56 | 48/55 | **\|** | 94.70% | **\|** | 177.7M | 8.76h |
 
-Wall time is the total recorded sequential case runtime and excludes infrastructure-only attempts.
+GateForge vs Claude Code: **Pass rate ↑ 4.8% · Tokens ↓ 79.6% · Runtime ↓ 58.1%**
+
+#### Model Generation
+
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **32/50** | **\|** | 2/2 | 10/10 | 20/38 | **\|** | **64.00%** | **\|** | **13.6M** | **2.73h** |
+| Claude Code | **\|** | 26/50 | **\|** | 2/2 | 10/10 | 14/38 | **\|** | 52.00% | **\|** | 77.1M | 2.91h |
+
+GateForge vs Claude Code: **Pass rate ↑ 23.1% · Tokens ↓ 82.4% · Runtime ↓ 6.3%**
+
+#### Model Tuning
+
+| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **\|** | **39/50** | **\|** | 4/4 | 24/24 | 11/22 | **\|** | **78.00%** | **\|** | **20.5M** | **5.12h** |
+| Claude Code | **\|** | 36/50 | **\|** | 4/4 | 24/24 | 8/22 | **\|** | 72.00% | **\|** | 86.7M | 10.43h |
+
+GateForge vs Claude Code: **Pass rate ↑ 8.3% · Tokens ↓ 76.4% · Runtime ↓ 51.0%**
+
+*Metrics use relative pass-rate improvement, matched logical-token accounting, and sequential runtime excluding infrastructure-only attempts.*
+
+Across these benchmark runs, GateForge's prompt-cache management achieved a **90%–93% cache hit rate**, enabling efficient context reuse across long-running Modelica workflows.
 
 ## Legal Notice
 
 Without prior written permission, no content on this site may be used for AI model training, fine-tuning, evaluation, or dataset construction.
 
-- `LEGAL_NOTICE.md`
-- `CONTENT_AUTHORIZATION_POLICY.md`
-- `robots.txt`
+- [Legal Notice](LEGAL_NOTICE.md)
+- [Content Authorization Policy](CONTENT_AUTHORIZATION_POLICY.md)
+- [robots.txt](robots.txt)
