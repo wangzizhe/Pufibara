@@ -28,28 +28,28 @@ The benchmark covers three Modelica workflow families:
 
 #### Model Repair
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **130/132** | **\|** | 21/21 | 56/56 | 53/55 | **\|** | **98.48%** | **\|** | **39.8M** | **4.07h** |
-| Claude Code | **\|** | 124/132 | **\|** | 21/21 | 56/56 | 47/55 | **\|** | 93.94% | **\|** | 227M | 9.78h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **130/132** | 21/21 | 56/56 | 53/55 | **98.48%** | **39.8M** | **4.07h** |
+| Claude Code | 124/132 | 21/21 | 56/56 | 47/55 | 93.94% | 227M | 9.78h |
 
 GateForge vs Claude Code: **Pass rate ↑ 4.8% · Tokens ↓ 82.5% · Runtime ↓ 58.4%**
 
 #### Model Generation
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **35/50** | **\|** | 2/2 | 10/10 | 23/38 | **\|** | **70.00%** | **\|** | **17.0M** | **2.34h** |
-| Claude Code | **\|** | 27/50 | **\|** | 2/2 | 10/10 | 15/38 | **\|** | 54.00% | **\|** | 81.1M | 2.49h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **35/50** | 2/2 | 10/10 | 23/38 | **70.00%** | **17.0M** | **2.34h** |
+| Claude Code | 27/50 | 2/2 | 10/10 | 15/38 | 54.00% | 81.1M | 2.49h |
 
 GateForge vs Claude Code: **Pass rate ↑ 29.6% · Tokens ↓ 79.0% · Runtime ↓ 6.1%**
 
 #### Model Tuning
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **37/50** | **\|** | 4/4 | 24/24 | 9/22 | **\|** | **74.00%** | **\|** | **22.9M** | **3.56h** |
-| Claude Code | **\|** | 34/50 | **\|** | 4/4 | 23/24 | 7/22 | **\|** | 68.00% | **\|** | 111.6M | 6.96h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **37/50** | 4/4 | 24/24 | 9/22 | **74.00%** | **22.9M** | **3.56h** |
+| Claude Code | 34/50 | 4/4 | 23/24 | 7/22 | 68.00% | 111.6M | 6.96h |
 
 GateForge vs Claude Code: **Pass rate ↑ 8.8% · Tokens ↓ 79.5% · Runtime ↓ 48.8%**
 
@@ -57,28 +57,28 @@ GateForge vs Claude Code: **Pass rate ↑ 8.8% · Tokens ↓ 79.5% · Runtime �
 
 #### Model Repair
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **131/132** | **\|** | 21/21 | 56/56 | 54/55 | **\|** | **99.24%** | **\|** | **36.2M** | **3.68h** |
-| Claude Code | **\|** | 125/132 | **\|** | 21/21 | 56/56 | 48/55 | **\|** | 94.70% | **\|** | 177.7M | 8.76h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **131/132** | 21/21 | 56/56 | 54/55 | **99.24%** | **36.2M** | **3.68h** |
+| Claude Code | 125/132 | 21/21 | 56/56 | 48/55 | 94.70% | 177.7M | 8.76h |
 
 GateForge vs Claude Code: **Pass rate ↑ 4.8% · Tokens ↓ 79.6% · Runtime ↓ 58.1%**
 
 #### Model Generation
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **32/50** | **\|** | 2/2 | 10/10 | 20/38 | **\|** | **64.00%** | **\|** | **13.6M** | **2.73h** |
-| Claude Code | **\|** | 26/50 | **\|** | 2/2 | 10/10 | 14/38 | **\|** | 52.00% | **\|** | 77.1M | 2.91h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **32/50** | 2/2 | 10/10 | 20/38 | **64.00%** | **13.6M** | **2.73h** |
+| Claude Code | 26/50 | 2/2 | 10/10 | 14/38 | 52.00% | 77.1M | 2.91h |
 
 GateForge vs Claude Code: **Pass rate ↑ 23.1% · Tokens ↓ 82.4% · Runtime ↓ 6.3%**
 
 #### Model Tuning
 
-| Agent | **\|** | Total | **\|** | Easy | Medium | Hard | **\|** | Pass rate | **\|** | Tokens | Runtime |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **GateForge** | **\|** | **39/50** | **\|** | 4/4 | 24/24 | 11/22 | **\|** | **78.00%** | **\|** | **20.5M** | **5.12h** |
-| Claude Code | **\|** | 36/50 | **\|** | 4/4 | 24/24 | 8/22 | **\|** | 72.00% | **\|** | 86.7M | 10.43h |
+| Agent | Total | Easy | Medium | Hard | Pass rate | Tokens | Runtime |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **GateForge** | **39/50** | 4/4 | 24/24 | 11/22 | **78.00%** | **20.5M** | **5.12h** |
+| Claude Code | 36/50 | 4/4 | 24/24 | 8/22 | 72.00% | 86.7M | 10.43h |
 
 GateForge vs Claude Code: **Pass rate ↑ 8.3% · Tokens ↓ 76.4% · Runtime ↓ 51.0%**
 
