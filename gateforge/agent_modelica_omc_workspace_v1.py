@@ -36,6 +36,8 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
 
+from .experiment_artifact_cleanup_v1 import cleanup_omc_build_byproducts
+
 
 # ---------------------------------------------------------------------------
 # Docker container lifecycle cleanup
@@ -302,7 +304,15 @@ def run_omc_script_docker(
         "omc",
         "run.mos",
     ]
-    return run_cmd(cmd, timeout_sec=timeout_sec)
+    try:
+        return run_cmd(cmd, timeout_sec=timeout_sec)
+    finally:
+        cleanup_report = cleanup_omc_build_byproducts(cwd)
+        if cleanup_report.status != "PASS":
+            raise RuntimeError(
+                "omc_build_cleanup_failed:"
+                + ",".join(cleanup_report.failed_paths)
+            )
 
 
 # ---------------------------------------------------------------------------
