@@ -608,6 +608,25 @@ class AnthropicProviderAdapter:
         return "anthropic"
 
     @staticmethod
+    def _apply_sampling_config(payload: dict, config: LLMProviderConfig) -> None:
+        """Project temperature only when the selected model accepts it."""
+        if not bool(config.extra.get("omit_temperature", False)):
+            payload["temperature"] = config.temperature
+
+    @staticmethod
+    def _apply_prompt_caching(payload: dict, config: LLMProviderConfig) -> None:
+        """Enable provider-scoped caching for stable request prefixes."""
+        mode = str(config.extra.get("prompt_cache_mode") or "").strip().lower()
+        if not mode:
+            return
+        if mode != "automatic_ephemeral_5m":
+            raise ValueError(f"anthropic_prompt_cache_mode_invalid:{mode}")
+        payload["cache_control"] = {"type": "ephemeral", "ttl": "5m"}
+        tools = payload.get("tools")
+        if isinstance(tools, list) and tools and isinstance(tools[-1], dict):
+            tools[-1]["cache_control"] = {"type": "ephemeral", "ttl": "5m"}
+
+    @staticmethod
     def _extract_response_text(payload: dict) -> str:
         content = payload.get("content") if isinstance(payload.get("content"), list) else []
         parts: list[str] = []
@@ -627,8 +646,9 @@ class AnthropicProviderAdapter:
             "model": config.model,
             "max_tokens": int(config.extra.get("max_tokens") or 4096),
             "messages": [{"role": "user", "content": [{"type": "text", "text": prompt}]}],
-            "temperature": config.temperature,
         }
+        self._apply_sampling_config(req_payload, config)
+        self._apply_prompt_caching(req_payload, config)
         req = urllib.request.Request(
             "https://api.anthropic.com/v1/messages",
             data=json.dumps(req_payload).encode("utf-8"),
@@ -675,8 +695,9 @@ class AnthropicProviderAdapter:
             "max_tokens": int(config.extra.get("max_tokens") or 4096),
             "messages": anthropic_messages,
             "tools": anthropic_tools,
-            "temperature": config.temperature,
         }
+        self._apply_sampling_config(req_payload, config)
+        self._apply_prompt_caching(req_payload, config)
         if system_prompt:
             req_payload["system"] = system_prompt
         req = urllib.request.Request(
@@ -1483,6 +1504,13 @@ def resolve_provider_adapter(
             "thinking": "",
             "response_format": {"type": "json_object"} if explicit == "deepseek" else "",
             "anthropic_base_url": str(os.getenv("ANTHROPIC_BASE_URL") or "").strip(),
+            "omit_temperature": (
+                explicit == "anthropic"
+                and str(model).strip().lower() == "claude-sonnet-5"
+            ),
+            "prompt_cache_mode": (
+                "automatic_ephemeral_5m" if explicit == "anthropic" else ""
+            ),
             "kimi_base_url": str(os.getenv("KIMI_BASE_URL") or "").strip(),
             "glm_base_url": str(os.getenv("GLM_BASE_URL") or "").strip(),
             "max_tokens": (

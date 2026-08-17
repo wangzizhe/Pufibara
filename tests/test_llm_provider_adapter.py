@@ -8,6 +8,7 @@ import unittest
 from unittest import mock
 
 from gateforge.llm_provider_adapter import (
+    AnthropicProviderAdapter,
     DeepSeekProviderAdapter,
     GeminiProviderAdapter,
     LLMProviderConfig,
@@ -37,6 +38,64 @@ class LLMProviderAdapterTests(unittest.TestCase):
         self.assertEqual(adapter.provider_name, "anthropic")
         self.assertEqual(config.provider_name, "anthropic")
         self.assertEqual(config.api_key, "anth-test")
+        self.assertEqual(
+            config.extra.get("prompt_cache_mode"), "automatic_ephemeral_5m"
+        )
+
+    def test_anthropic_prompt_caching_is_provider_scoped_and_validated(self) -> None:
+        payload = {"tools": [{"name": "simulate"}, {"name": "submit"}]}
+        AnthropicProviderAdapter._apply_prompt_caching(
+            payload,
+            LLMProviderConfig(
+                provider_name="anthropic",
+                model="claude-sonnet-5",
+                api_key="key",
+                extra={"prompt_cache_mode": "automatic_ephemeral_5m"},
+            ),
+        )
+        self.assertEqual(
+            payload["cache_control"], {"type": "ephemeral", "ttl": "5m"}
+        )
+        self.assertNotIn("cache_control", payload["tools"][0])
+        self.assertEqual(
+            payload["tools"][1]["cache_control"],
+            {"type": "ephemeral", "ttl": "5m"},
+        )
+        with self.assertRaisesRegex(ValueError, "anthropic_prompt_cache_mode_invalid"):
+            AnthropicProviderAdapter._apply_prompt_caching(
+                {},
+                LLMProviderConfig(
+                    provider_name="anthropic",
+                    model="claude-sonnet-5",
+                    api_key="key",
+                    extra={"prompt_cache_mode": "unknown"},
+                ),
+            )
+
+    def test_anthropic_sampling_configuration_is_model_compatible(self) -> None:
+        payload = {}
+        AnthropicProviderAdapter._apply_sampling_config(
+            payload,
+            LLMProviderConfig(
+                provider_name="anthropic",
+                model="claude-sonnet-5",
+                api_key="key",
+                temperature=0.2,
+                extra={"omit_temperature": True},
+            ),
+        )
+        self.assertNotIn("temperature", payload)
+
+        AnthropicProviderAdapter._apply_sampling_config(
+            payload,
+            LLMProviderConfig(
+                provider_name="anthropic",
+                model="claude-sonnet-4-5",
+                api_key="key",
+                temperature=0.2,
+            ),
+        )
+        self.assertEqual(payload["temperature"], 0.2)
 
     def test_resolve_provider_adapter_detects_minimax(self) -> None:
         with mock.patch("gateforge.llm_provider_adapter._bootstrap_env_from_repo", return_value=0), mock.patch.dict(
