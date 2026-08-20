@@ -61,7 +61,7 @@ Pufibara vs Claude Code: **Pass rate ↑ 29.6% · Tokens ↓ 79.0% · Runtime �
 
 Pufibara vs Claude Code: **Pass rate ↑ 8.8% · Tokens ↓ 79.5% · Runtime ↓ 48.8%**
 
-### Backend: Sonnet 5
+### Backend: Claude Sonnet 5
 
 #### Model Repair
 
