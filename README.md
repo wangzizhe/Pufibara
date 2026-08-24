@@ -98,6 +98,10 @@ Across these benchmark runs, Pufibara's prompt-cache management achieved a **90%
   <img src="docs/assets/pufibara-teaching.png" alt="Pufibara explaining physical-system models" width="480" />
 </p>
 
+## Repository Scope
+
+This repository contains the publicly released components of Pufibara, including documentation and selected reusable tooling. It represents the public-facing layer of the project rather than the complete system. The broader engineering and research stack is maintained privately.
+
 ## Legal Notice
 
 Without prior written permission, no content on this site may be used for AI model training, fine-tuning, evaluation, or dataset construction.
