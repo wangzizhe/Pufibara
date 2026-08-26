@@ -1,6 +1,6 @@
 # Pufibara
 
-<h3 align="center">A State-of-the-Art AI Agent for Physical Systems Modeling</h3>
+<h3 align="center">A (Maybe) State-of-the-Art AI Agent for Physical Systems Modeling</h3>
 <p align="center">Currently focused on Modelica workflows</p>
 
 <p align="center">
