@@ -1,1 +1,1 @@
-"""GateForge minimal package."""
+"""Public runtime components for the Pufibara agent harness."""

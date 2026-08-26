@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12"]
+        python-version: ["3.10", "3.11", "3.12", "3.13", "3.14"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -21,18 +21,8 @@ jobs:
       - name: Compile public Python sources
         run: python -m compileall gateforge tests scripts
       - name: Run public unit tests
-        run: |
-          python -m unittest \
-            tests.test_llm_provider_adapter \
-            tests.test_experiment_artifact_cleanup_v1 \
-            tests.test_agent_modelica_agent_profile_registry_v1 \
-            tests.test_agent_modelica_omc_workspace_v1 \
-            tests.test_agent_modelica_workspace_style_probe_v0_67 \
-            tests.test_agent_modelica_admission_failure_stage_v1 \
-            tests.test_ci_runner_contract \
-            tests.test_ci_shard_config_contract \
-            -v
-      - name: Guard public tree against internal markers
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Guard the public tree against internal markers
         run: |
           pattern='assets''_private|CHANGELOG''_INTERNAL|CLEAN''_SOURCE''_BACKED|BENCHMARK''_LEDGER|internal''_docs|task_[0-9]{3,}'
           if git grep -n -E "$pattern" -- . ':!.github/workflows/ci.yml' ':!.gitignore'; then

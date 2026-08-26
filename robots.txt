@@ -1,7 +1,7 @@
-# GateForge crawling policy
+# Pufibara crawling policy
 # Keep normal web crawlers accessible, but block major AI/LLM crawlers.
 # Policy-Version: v1.0
-# Last updated: 2026-03-02
+# Last updated: 2026-08-25
 
 User-agent: GPTBot
 Disallow: /

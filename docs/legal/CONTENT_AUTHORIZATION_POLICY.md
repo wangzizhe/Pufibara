@@ -1,7 +1,7 @@
 # Content Authorization Policy
 
-Policy-Version: v1.0
-Last updated: 2026-03-02
+Policy-Version: v1.1
+Last updated: 2026-08-25
 
 ## 1) Copyright Position
 
@@ -25,7 +25,7 @@ Without prior written permission, the following are explicitly prohibited:
 
 ## 3) AI Training Restriction Notice
 
-Without prior written permission, no content on this site may be used for AI model training, fine-tuning, evaluation, or dataset construction.
+Without prior written permission, website/editorial content and media assets may not be used for AI model training, fine-tuning, evaluation, or dataset construction. Source code and files explicitly released under an open-source license remain governed by that license.
 
 ## 4) Scope and Priority
 

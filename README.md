@@ -104,10 +104,10 @@ This repository contains the publicly released components of Pufibara, including
 
 ## Legal Notice
 
-Without prior written permission, no content on this site may be used for AI model training, fine-tuning, evaluation, or dataset construction.
+Without prior written permission, website/editorial content and media assets may not be used for AI model training, fine-tuning, evaluation, or dataset construction. Source code and files explicitly released under an open-source license remain governed by that license.
 
-- [Legal Notice](LEGAL_NOTICE.md)
-- [Content Authorization Policy](CONTENT_AUTHORIZATION_POLICY.md)
+- [Legal Notice](docs/legal/LEGAL_NOTICE.md)
+- [Content Authorization Policy](docs/legal/CONTENT_AUTHORIZATION_POLICY.md)
 - [robots.txt](robots.txt)
 
 ## Citation
