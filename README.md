@@ -112,7 +112,7 @@ Without prior written permission, no content on this site may be used for AI mod
 
 ## Citation
 
-```bibtex
+```
 @article{wang2026pufibara,
   title   = {Beyond Executable Models: The Pufibara Agent Harness and the Modelica Agent Workflow Benchmark for Physical System Modeling},
   author  = {Wang, Zizhe},
