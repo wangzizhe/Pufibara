@@ -102,14 +102,6 @@ Across these benchmark runs, Pufibara's prompt-cache management achieved a **90%
 
 This repository contains the publicly released components of Pufibara, including documentation and selected reusable tooling. It represents the public-facing layer of the project rather than the complete system. The broader engineering and research stack is maintained privately.
 
-## Legal Notice
-
-Without prior written permission, website/editorial content and media assets may not be used for AI model training, fine-tuning, evaluation, or dataset construction. Source code and files explicitly released under an open-source license remain governed by that license.
-
-- [Legal Notice](docs/legal/LEGAL_NOTICE.md)
-- [Content Authorization Policy](docs/legal/CONTENT_AUTHORIZATION_POLICY.md)
-- [robots.txt](robots.txt)
-
 ## Citation
 
 ```
