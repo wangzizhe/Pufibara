@@ -2,16 +2,6 @@
 
 All notable public changes to this project are documented in this file. Detailed experiment results, failure attribution, and internal analysis notes are tracked in private documentation and are intentionally not published here.
 
-## Unreleased
-
-### Changed
-- Updated public project metadata, legal notices, brand assets, and Python compatibility coverage.
-- Simplified the public CI entrypoint to discover the maintained provider-free test suite directly.
-
-### Removed
-- Removed retired profile, admission-stage, analysis, CI-shard, and standalone launcher utilities together with their dedicated tests.
-- Removed the superseded workspace-style Agent prototype and its dedicated test suite from the maintained public tree.
-
 ## [v0.213.979] - 2026-08-17
 
 ### Added
