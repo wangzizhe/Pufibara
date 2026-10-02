@@ -21,9 +21,9 @@
 <h4 align="center">👀 Something is Brewing 👀</h4>
 
 <p align="center">Currently busy turning Pufibara into its first usable version, and having a lot of fun along the way :)</p>
-<p align="center">There are still plenty of details to work through.</p>
 <p align="center">First preview coming <strong>October 31</strong> (yes, 2026, not 2027!).</p>
-<p align="center">Stay tuned!</p>
+<p align="center">The first preview will go out to a small group of selected customers.</p>
+<p align="center">Want to be among the first? Come say hello!</p>
 
 ## Agentic Modelica Workflow Benchmark
 
