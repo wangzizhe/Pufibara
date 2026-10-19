@@ -3,6 +3,8 @@
 <h3 align="center">A (Maybe) State-of-the-Art AI Agent for Physical Systems Modeling</h3>
 <p align="center">Currently focused on Modelica workflows</p>
 
+<h3 align="center"><a href="https://wangzizhe.github.io/Pufibara/">Visit the Pufibara Website ↗</a></h3>
+
 <p align="center">
   <a href="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml" style="text-decoration:none;"><img src="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>&nbsp;
   <a href="https://github.com/wangzizhe/Pufibara/releases" style="text-decoration:none;"><img src="https://img.shields.io/github/release/wangzizhe/Pufibara.svg?include_prereleases" alt="Release" /></a>&nbsp;
