@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fcf9f4">
+  <meta name="description" content="Pufibara is an AI Agent for physical systems modeling, currently focused on Modelica workflows. Explore the ideas, paper, and public benchmark.">
+  <title>Pufibara — AI for Physical Systems Modeling</title>
+  <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=english-9">
+  <link rel="preload" href="assets/fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="pilot-form.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#" aria-label="Pufibara home"><img class="brand-icon" src="assets/mascot-topper.svg" alt="" width="37" height="40" aria-hidden="true">Pufibara<span class="brand-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#difference">Why Pufibara</a>
+      <a href="#benchmark">Benchmark</a>
+      <a href="#research">Paper & Benchmark</a>
+      <a class="nav-pilot" href="#pilot"><span class="pilot-nav-full">Join the Pilot</span><span class="pilot-nav-short">Pilot</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> AI AGENT FOR PHYSICAL SYSTEMS MODELING</p>
+        <h1 id="hero-title"><span class="hero-line">From physical models</span> <span class="hero-line">to <span class="accent">engineering outcomes.</span></span></h1>
+        <p class="hero-description">Pufibara is an AI Agent for physical systems modeling.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#pilot">Join the Pilot <span aria-hidden="true">→</span></a>
+          <a class="text-link" href="https://arxiv.org/abs/2608.23653">Read the paper <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="launch-note">Pilot release planned for <time datetime="2026-10-31">October 31, 2026</time>.<br>Initial support: OpenModelica.</p>
+      </div>
+      <figure class="hero-art">
+        <img src="assets/pufibara.webp" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high">
+      </figure>
+    </section>
+    <div class="scope-strip wrap" aria-label="Current project focus">
+      <span class="strip-title">CURRENT FOCUS</span><span>Modelica workflows</span><span class="strip-divider" aria-hidden="true"></span><span>Physical systems modeling</span><span class="strip-divider" aria-hidden="true"></span><span>AI Agent</span>
+    </div>
+    <section class="difference wrap section-space" id="difference" aria-labelledby="difference-title">
+      <p class="eyebrow">01 / WHY PUFIBARA</p>
+      <div class="difference-heading"><h2 id="difference-title">Why Pufibara?</h2><p>A model that compiles and runs is only the first step. It does not guarantee correct physical behavior.</p></div>
+      <div class="difference-grid">
+        <article class="difference-item"><span class="difference-number">01 / ENGINEERING-FIRST</span><h3>Built for physical modeling.</h3><p>Designed around engineering requirements, rather than general-purpose coding tasks.</p><a class="difference-link" href="https://arxiv.org/abs/2608.23653">Read the methods <span aria-hidden="true">↗</span></a></article>
+        <article class="difference-item"><span class="difference-number">02 / DATA PRIVACY</span><h3>Stay in full control of your data.</h3><p>Pufibara runs on your computer with no LLM lock-in. Whether you use an API or run an LLM locally, you control your data.</p></article>
+        <article class="difference-item"><span class="difference-number">03 / BENCHMARK</span><h3>Measurable performance.</h3><p>Explicit benchmarks to compare performance, identify gaps, and measure improvements.</p><a class="difference-link" href="https://github.com/wangzizhe/modelica-agent-workflow-benchmark">View the benchmark <span aria-hidden="true">↗</span></a></article>
+        <article class="difference-item"><span class="difference-number">04 / SOFTWARE-AGNOSTIC</span><h3>Not tied to one tool.</h3><p>Designed to work across software, beyond any single Modelica environment.</p></article>
+      </div>
+    </section>
+    <section class="benchmark-section" id="benchmark" aria-labelledby="benchmark-title">
+      <div class="wrap">
+        <div class="benchmark-heading"><div><p class="eyebrow">02 / BENCHMARK</p><h2 id="benchmark-title" class="benchmark-matchup">Pufibara <span class="matchup-vs">vs</span> <span class="matchup-competitor">Claude Code</span></h2><p class="benchmark-takeaway">Higher pass rates. Fewer tokens. Shorter runtime.</p></div><p>Six publicly reported comparisons.<br>Each uses the same backend model.</p></div>
+        <p class="benchmark-context">2 backend models <span aria-hidden="true">/</span> 3 Modelica workflow families</p>
+        <div class="benchmark-metrics">
+          <article class="benchmark-metric"><h3>Relative pass-rate improvement</h3><p class="metric-value metric-range">4.8–29.6<span>%</span></p><p class="metric-comparison">Relative increase over Claude Code's pass rate</p></article>
+          <article class="benchmark-metric"><h3>Token reduction</h3><p class="metric-value metric-range">76.4–82.5<span>%</span></p><p class="metric-comparison">Matched logical-token accounting</p></article>
+          <article class="benchmark-metric"><h3>Runtime reduction</h3><p class="metric-value metric-range">6.1–58.4<span>%</span></p><p class="metric-comparison">Reduction in sequential runtime vs. Claude Code</p></article>
+        </div>
+        <div class="benchmark-footer">
+          <div class="benchmark-notes">
+            <p>Ranges span six comparisons; pass-rate gains are relative, not percentage points.</p>
+            <details class="evaluation-details">
+              <summary>Evaluation details</summary>
+              <p>Ranges show the minimum and maximum across the six reported comparisons, not pooled metrics. Sequential runtime excludes infrastructure-only attempts. These descriptive results do not establish general statistical superiority.</p>
+            </details>
+          </div>
+          <a class="text-link" href="https://github.com/wangzizhe/Pufibara#agentic-modelica-workflow-benchmark">All models and task results <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+    <section class="research wrap section-space" id="research" aria-labelledby="research-title">
+      <div class="research-copy"><p class="eyebrow">03 / PAPER & BENCHMARK</p><h2 id="research-title">Paper & benchmark.</h2><p>Read the methods behind Pufibara and explore the evaluation protocols and public demo tasks for Modelica Agent workflows.</p></div>
+      <div class="resource-list">
+        <a class="resource" href="https://arxiv.org/abs/2608.23653"><div><span class="resource-type">PAPER / ARXIV</span><h3>Beyond Executable Models</h3><p>The Pufibara Agent Harness and Modelica Agent Workflow Benchmark</p></div><span class="resource-arrow" aria-hidden="true">↗</span></a>
+        <a class="resource" href="https://github.com/wangzizhe/modelica-agent-workflow-benchmark"><div><span class="resource-type">BENCHMARK / GITHUB</span><h3>Modelica Agent Workflow Benchmark</h3><p>Explore public evaluation protocols and demo tasks</p></div><span class="resource-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section class="pilot-section wrap" id="pilot" aria-labelledby="pilot-title">
+      <div class="pilot-copy">
+        <p class="eyebrow">04 / EARLY ACCESS</p>
+        <h2 id="pilot-title">Join the Pilot.</h2>
+        <p>At launch, Pufibara will be delivered to an initial group of selected customers. If you would like to join the pilot, please fill out the form below.</p>
+        <div class="pilot-release"><span>PILOT RELEASE</span><strong><time datetime="2026-10-31">October 31, 2026</time> <small>planned</small></strong><p>Initial support: OpenModelica</p></div>
+      </div>
+      <form class="pilot-form" action="https://formsubmit.co/zizhe.wang@tu-dresden.de" method="POST" accept-charset="UTF-8" aria-label="Pilot application" data-success-page="thanks.html" data-submitting="Submitting…">
+        <input type="hidden" name="_subject" value="Pufibara — Pilot application">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="page_language" value="English">
+        <div class="form-row">
+          <div class="form-field"><label for="pilot-name">Name <span aria-hidden="true">*</span></label><input id="pilot-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+          <div class="form-field"><label for="pilot-email">Email address <span aria-hidden="true">*</span></label><input id="pilot-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+        </div>
+        <div class="form-field"><label for="pilot-company">Company / Organization <span aria-hidden="true">*</span></label><input id="pilot-company" name="company" type="text" autocomplete="organization" maxlength="200" required></div>
+        <div class="form-field"><label for="pilot-area">Application area <span aria-hidden="true">*</span></label><input id="pilot-area" name="application_area" type="text" placeholder="e.g. energy systems, thermal modeling, controls" maxlength="200" required></div>
+        <div class="form-field"><label for="pilot-workflow">How could Pufibara help your workflow? <span aria-hidden="true">*</span></label><textarea id="pilot-workflow" name="workflow_needs" rows="4" placeholder="What do you want to model? What takes the most effort today?" maxlength="4000" required></textarea></div>
+        <p class="form-note" id="pilot-privacy">Fields marked * are required.</p>
+        <button class="button primary" type="submit" aria-describedby="pilot-privacy">Apply for the Pilot <span aria-hidden="true">→</span></button>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><a class="footer-brand" href="#">Pufibara.</a><p>AI Agent for Physical Systems Modeling</p><a href="https://github.com/wangzizhe/Pufibara">GitHub <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>
