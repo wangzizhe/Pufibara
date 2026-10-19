@@ -2,8 +2,7 @@
 
 <h3 align="center">A (Maybe) State-of-the-Art AI Agent for Physical Systems Modeling</h3>
 <p align="center">Currently focused on Modelica workflows</p>
-
-<p align="center"><a href="https://wangzizhe.github.io/Pufibara/">https://wangzizhe.github.io/Pufibara/</a></p>
+<p align="center"><a href="https://wangzizhe.github.io/Pufibara">https://wangzizhe.github.io/Pufibara</a></p>
 
 <p align="center">
   <a href="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml" style="text-decoration:none;"><img src="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>&nbsp;
@@ -114,7 +113,7 @@ Across these benchmark runs, Pufibara's prompt-cache management achieved a **90%
 This repository contains the publicly released components of Pufibara, including documentation and selected reusable tooling. It represents the public-facing layer of the project rather than the complete system. The broader engineering and research stack is maintained privately.
 
 ## Citation
-
+https://arxiv.org/abs/2608.23653
 ```
 @article{wang2026pufibara,
   title   = {Beyond Executable Models: The Pufibara Agent Harness and the Modelica Agent Workflow Benchmark for Physical System Modeling},
