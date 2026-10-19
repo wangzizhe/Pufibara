@@ -4,6 +4,7 @@
 <p align="center">Currently focused on Modelica workflows</p>
 
 <h3 align="center"><a href="https://wangzizhe.github.io/Pufibara/">Visit the Pufibara Website ↗</a></h3>
+<p align="center"><a href="https://wangzizhe.github.io/Pufibara/">https://wangzizhe.github.io/Pufibara/</a></p>
 
 <p align="center">
   <a href="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml" style="text-decoration:none;"><img src="https://github.com/wangzizhe/Pufibara/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>&nbsp;
