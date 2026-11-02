@@ -1,6 +1,6 @@
 # Pufibara
 
-<h3 align="center">A (Maybe) State-of-the-Art AI Agent for Physical Systems Modeling</h3>
+<h3 align="center">AI Agent for Physical Systems Modeling and Simulation</h3>
 <p align="center">Currently focused on Modelica workflows</p>
 <p align="center"><a href="https://wangzizhe.github.io/Pufibara">https://wangzizhe.github.io/Pufibara</a></p>
 
@@ -14,7 +14,7 @@
   <img src="docs/assets/pufibara.png" alt="Pufibara — AI Agent for Physical Systems Modeling" width="480" />
 </p>
 
-<h3 align="center">Pufibara outperforms Claude Code across the full Modelica benchmark suite</h3>
+<h3 align="center">Pufibara outperforms Claude Code on the Modelica Agent Workflow Benchmark</h3>
 <p align="center">Higher pass rate &nbsp;·&nbsp; Fewer tokens &nbsp;·&nbsp; Faster runtime</p>
 
 ---
@@ -22,9 +22,8 @@
 <h4 align="center">👀 Something is Brewing 👀</h4>
 
 <p align="center">Currently busy turning Pufibara into its first usable version, and having a lot of fun along the way :)</p>
-<p align="center">First preview coming <strong>October 31</strong> (yes, 2026, not 2027!).</p>
-<p align="center">The first preview will go out to a small group of selected customers.</p>
-<p align="center">Want to be among the first? Come say hello!</p>
+<p align="center">Want to be among the first? <a href="https://wangzizhe.github.io/Pufibara/#pilot"><strong>Get Early Access →</strong></a></p>
+<p align="center">We’ll invite you when it’s ready.</p>
 
 ## Agentic Modelica Workflow Benchmark
 
