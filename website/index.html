@@ -7,7 +7,7 @@
   <meta name="description" content="Pufibara is an AI agent for physical systems modeling and simulation, currently focused on Modelica workflows. Explore the ideas, paper, and public benchmark.">
   <title>Pufibara — AI Agent for Physical Systems Modeling and Simulation</title>
   <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=demo-4">
+  <link rel="stylesheet" href="styles.css?v=site-review-1">
   <link rel="preload" href="assets/fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <script src="pilot-form.js" defer></script>
   <script src="demo-video.js" defer></script>
@@ -37,6 +37,29 @@
         <img src="assets/pufibara.webp?v=mascot-2" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high">
       </figure>
     </section>
+    <section class="engineering-section" id="engineering" aria-labelledby="engineering-title">
+      <div class="wrap section-space">
+        <h2 class="engineering-title" id="engineering-title">Engineering Today vs <span class="accent">Tomorrow</span></h2>
+        <div class="engineering-grid">
+          <article class="engineering-column">
+            <h3>Today</h3>
+            <ul>
+              <li>Learn how to use different software tools</li>
+              <li>Manually operate tools and modify artifacts</li>
+              <li>Spend days debugging and repeating steps</li>
+            </ul>
+          </article>
+          <article class="engineering-column engineering-tomorrow">
+            <h3>Tomorrow</h3>
+            <ul>
+              <li>Describe your engineering goals</li>
+              <li>Let AI agents operate tools and modify artifacts</li>
+              <li>Review results and make engineering decisions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
     <section class="demo-section" id="demo" aria-labelledby="demo-title">
       <div class="wrap section-space demo-inner">
         <h2 id="demo-title">Vision &amp; Demo</h2>
@@ -62,19 +85,19 @@
     </section>
     <section class="benchmark-section" id="benchmark" aria-labelledby="benchmark-title">
       <div class="wrap">
-        <div class="benchmark-heading"><div><p class="eyebrow">02 / BENCHMARK</p><h2 id="benchmark-title" class="benchmark-matchup">Pufibara <span class="matchup-vs">vs</span> <span class="matchup-competitor">Claude Code</span></h2><p class="benchmark-takeaway">Higher pass rates. Fewer tokens. Shorter runtime.</p></div><p>Six publicly reported comparisons.<br>Each uses the same backend model.</p></div>
-        <p class="benchmark-context">2 backend models <span aria-hidden="true">/</span> 3 Modelica workflow families</p>
+        <div class="benchmark-heading"><div><p class="eyebrow">02 / BENCHMARK</p><h2 id="benchmark-title" class="benchmark-matchup"><span class="accent">Pufibara</span> <span class="matchup-vs">vs</span> <span class="matchup-competitor">Claude Code</span></h2><p class="benchmark-takeaway">Higher pass rates. Fewer tokens. Shorter runtime.</p></div><p>Six publicly reported comparisons.<br>Each uses the same backend model.</p></div>
+        <p class="benchmark-context">2 LLMs <span aria-hidden="true">/</span> 3 Modelica workflow families <span aria-hidden="true">/</span> 3 difficulty levels</p>
         <div class="benchmark-metrics">
-          <article class="benchmark-metric"><h3>Relative pass-rate improvement</h3><p class="metric-value metric-range">4.8–29.6<span>%</span></p><p class="metric-comparison">Relative increase over Claude Code's pass rate</p></article>
-          <article class="benchmark-metric"><h3>Token reduction</h3><p class="metric-value metric-range">76.4–82.5<span>%</span></p><p class="metric-comparison">Matched logical-token accounting</p></article>
-          <article class="benchmark-metric"><h3>Runtime reduction</h3><p class="metric-value metric-range">6.1–58.4<span>%</span></p><p class="metric-comparison">Reduction in sequential runtime vs. Claude Code</p></article>
+          <article class="benchmark-metric"><h3>Higher pass rate</h3><p class="metric-value"><span class="metric-prefix">Up to</span> 29.6<span>%</span></p></article>
+          <article class="benchmark-metric"><h3>Fewer tokens</h3><p class="metric-value"><span class="metric-prefix">Up to</span> 82.5<span>%</span></p></article>
+          <article class="benchmark-metric"><h3>Faster runtime</h3><p class="metric-value"><span class="metric-prefix">Up to</span> 58.4<span>%</span></p></article>
         </div>
         <div class="benchmark-footer">
           <div class="benchmark-notes">
-            <p>Ranges span six comparisons; pass-rate gains are relative, not percentage points.</p>
+            <p>Best of six comparisons. Relative pass-rate gains.</p>
             <details class="evaluation-details">
               <summary>Evaluation details</summary>
-              <p>Ranges show the minimum and maximum across the six reported comparisons, not pooled metrics. Sequential runtime excludes infrastructure-only attempts. These descriptive results do not establish general statistical superiority.</p>
+              <p>Each workflow has easy, medium, and hard tasks. Best values may come from different comparisons. Pass-rate gains are relative, not percentage points. Token accounting is matched. Runtime is sequential, excluding infrastructure-only attempts.</p>
             </details>
           </div>
           <a class="text-link" href="https://github.com/wangzizhe/Pufibara#agentic-modelica-workflow-benchmark">View full benchmark results <span aria-hidden="true">↗</span></a>

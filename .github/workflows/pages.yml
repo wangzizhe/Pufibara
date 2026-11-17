@@ -33,10 +33,16 @@ jobs:
           persist-credentials: false
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Upload website only
+      - name: Prepare public website files
+        run: |
+          mkdir -p _site/assets/fonts
+          cp website/index.html website/thanks.html website/styles.css website/pilot-form.js website/demo-video.js _site/
+          cp website/assets/pufibara.webp website/assets/mascot-topper.svg _site/assets/
+          cp website/assets/fonts/Montserrat-Variable.woff2 website/assets/fonts/OFL-Montserrat.txt _site/assets/fonts/
+      - name: Upload public website only
         uses: actions/upload-pages-artifact@v4
         with:
-          path: website
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
