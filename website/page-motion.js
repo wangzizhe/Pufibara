@@ -1,5 +1,18 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+const mobileNav = document.querySelector('.mobile-nav');
+if (mobileNav) {
+  mobileNav.addEventListener('click', (event) => {
+    if (event.target.closest('.mobile-nav-links a')) mobileNav.open = false;
+  });
+  mobileNav.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !mobileNav.open) return;
+    event.preventDefault();
+    mobileNav.open = false;
+    mobileNav.querySelector('summary').focus();
+  });
+}
+
 function animateMetric(element) {
   const finalText = element.textContent;
   const target = Number(finalText);

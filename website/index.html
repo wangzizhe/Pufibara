@@ -7,20 +7,29 @@
   <meta name="description" content="Pufibara is an AI agent for physical systems modeling and simulation, currently focused on Modelica workflows. Explore the ideas, paper, and public benchmark.">
   <title>Pufibara — AI Agent for Physical Systems Modeling and Simulation</title>
   <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=responsive-review-1">
+  <link rel="stylesheet" href="styles.css?v=site-nav-2">
   <link rel="preload" href="assets/fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <script src="pilot-form.js" defer></script>
   <script src="demo-video.js" defer></script>
-  <script src="page-motion.js" defer></script>
+  <script src="page-motion.js?v=site-nav-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header wrap">
     <a class="wordmark" href="#" aria-label="Pufibara home"><img class="brand-icon" src="assets/mascot-topper.svg" alt="" width="37" height="40" aria-hidden="true">Pufibara<span class="brand-dot" aria-hidden="true">.</span></a>
     <nav aria-label="Main navigation">
-      <a href="#difference">Why Pufibara</a>
-      <a href="#benchmark">Performance</a>
-      <a class="nav-pilot" href="#pilot"><span class="pilot-nav-full">Get Early Access</span><span class="pilot-nav-short">Early Access</span></a>
+      <a class="desktop-nav-link" href="#demo">Demo</a>
+      <a class="desktop-nav-link" href="#difference">Why Pufibara</a>
+      <a class="desktop-nav-link" href="#benchmark">Performance</a>
+      <a class="nav-pilot" href="#pilot">Early Access</a>
+      <details class="mobile-nav">
+        <summary aria-label="Navigation menu"><span aria-hidden="true"></span></summary>
+        <div class="mobile-nav-links">
+          <a href="#demo">Demo</a>
+          <a href="#difference">Why Pufibara</a>
+          <a href="#benchmark">Performance</a>
+        </div>
+      </details>
     </nav>
   </header>
   <main id="main">
@@ -58,7 +67,7 @@
         </div>
       </div>
     </section>
-    <section class="demo-section" id="demo" aria-labelledby="demo-title">
+    <section class="demo-section" id="demo" aria-labelledby="demo-title" tabindex="-1">
       <div class="wrap section-space demo-inner">
         <h2 id="demo-title"><span class="heading-vision">Vision</span> <span class="heading-amp">&amp;</span> <span class="heading-demo">Demo</span></h2>
         <div class="demo-frame">
@@ -71,7 +80,7 @@
         <a class="text-link demo-fallback" href="https://youtu.be/xl2gWwnYfv0">Watch on YouTube <span aria-hidden="true">↗</span></a>
       </div>
     </section>
-    <section class="difference wrap section-space" id="difference" aria-labelledby="difference-title">
+    <section class="difference wrap section-space" id="difference" aria-labelledby="difference-title" tabindex="-1">
       <div class="difference-heading">
         <h2 id="difference-title">Why Pufibara?</h2>
       </div>
@@ -118,7 +127,7 @@
         </article>
       </div>
     </section>
-    <section class="benchmark-section" id="benchmark" aria-labelledby="benchmark-title">
+    <section class="benchmark-section" id="benchmark" aria-labelledby="benchmark-title" tabindex="-1">
       <div class="wrap">
         <div class="benchmark-heading">
           <h2 id="benchmark-title" class="benchmark-matchup"><span class="accent">Pufibara</span> <span class="matchup-vs">vs</span> <span class="matchup-competitor">Claude Code</span></h2>
