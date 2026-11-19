@@ -35,6 +35,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 a:focus-visible { outline: 3px solid var(--orange); outline-offset: 5px; }
+section[tabindex="-1"]:focus { outline: none; }
 ::selection { background: var(--orange); color: var(--ink); }
 h1, h2, h3, p { margin-top: 0; }
 .wrap { width: min(1184px, calc(100% - 96px)); margin-inline: auto; }
