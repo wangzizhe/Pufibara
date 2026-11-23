@@ -36,8 +36,8 @@ jobs:
       - name: Prepare public website files
         run: |
           mkdir -p _site/assets/fonts
-          cp website/index.html website/thanks.html website/styles.css website/pilot-form.js website/demo-video.js website/page-motion.js _site/
-          cp website/assets/pufibara.webp website/assets/mascot-topper.svg _site/assets/
+          cp website/index.html website/thanks.html website/styles.css website/pilot-form.js website/demo-video.js website/page-motion.js website/theme.js _site/
+          cp website/assets/pufibara.webp website/assets/pufibara-dark.jpg website/assets/mascot-topper.svg _site/assets/
           cp website/assets/fonts/Montserrat-Variable.woff2 website/assets/fonts/OFL-Montserrat.txt _site/assets/fonts/
       - name: Upload public website only
         uses: actions/upload-pages-artifact@v4

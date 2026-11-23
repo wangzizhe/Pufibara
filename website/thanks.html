@@ -7,12 +7,21 @@
   <meta name="robots" content="noindex">
   <title>Thank you — Pufibara Early Access</title>
   <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=site-nav-3">
+  <script src="theme.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=privacy-spacing-4">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <header class="site-header wrap">
     <a class="wordmark" href="index.html" aria-label="Pufibara home"><img class="brand-icon" src="assets/mascot-topper.svg" alt="" width="37" height="40">Pufibara<span class="brand-dot" aria-hidden="true">.</span></a>
+    <details class="theme-control" hidden>
+      <summary aria-label="Color theme: System" title="Color theme"><span class="theme-icon" aria-hidden="true"></span></summary>
+      <div class="theme-options" role="group" aria-label="Color theme">
+        <button type="button" data-choice="system" aria-pressed="true"><span class="theme-icon" aria-hidden="true"></span>System</button>
+        <button type="button" data-choice="light" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Light</button>
+        <button type="button" data-choice="dark" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Dark</button>
+      </div>
+    </details>
   </header>
   <main class="success-page wrap" id="main">
     <section class="success-card" aria-labelledby="thanks-title">

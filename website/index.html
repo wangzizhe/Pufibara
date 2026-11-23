@@ -7,7 +7,8 @@
   <meta name="description" content="Pufibara is an AI agent for physical systems modeling and simulation, currently focused on Modelica workflows. Explore the ideas, paper, and public benchmark.">
   <title>Pufibara — AI Agent for Physical Systems Modeling and Simulation</title>
   <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=site-nav-3">
+  <script src="theme.js?v=3"></script>
+  <link rel="stylesheet" href="styles.css?v=privacy-spacing-4">
   <link rel="preload" href="assets/fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <script src="pilot-form.js" defer></script>
   <script src="demo-video.js" defer></script>
@@ -30,6 +31,14 @@
           <a href="#benchmark">Performance</a>
         </div>
       </details>
+      <details class="theme-control" hidden>
+        <summary aria-label="Color theme: System" title="Color theme"><span class="theme-icon" aria-hidden="true"></span></summary>
+        <div class="theme-options" role="group" aria-label="Color theme">
+          <button type="button" data-choice="system" aria-pressed="true"><span class="theme-icon" aria-hidden="true"></span>System</button>
+          <button type="button" data-choice="light" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Light</button>
+          <button type="button" data-choice="dark" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Dark</button>
+        </div>
+      </details>
     </nav>
   </header>
   <main id="main">
@@ -43,7 +52,12 @@
         </div>
       </div>
       <figure class="hero-art">
-        <a class="mascot-link" href="#demo" aria-label="Watch the Pufibara demo"><img src="assets/pufibara.webp?v=mascot-2" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high"></a>
+        <a class="mascot-link" href="#demo" aria-label="Watch the Pufibara demo">
+          <picture>
+            <source id="dark-mascot" media="(prefers-color-scheme: dark)" srcset="assets/pufibara-dark.jpg">
+            <img src="assets/pufibara.webp?v=mascot-2" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high">
+          </picture>
+        </a>
       </figure>
     </section>
     <section class="engineering-section" id="engineering" aria-labelledby="engineering-title">
@@ -89,22 +103,25 @@
           <span class="feature-label">Engineering</span>
           <div class="feature-visual behavior-visual" aria-hidden="true">
             <svg viewBox="0 0 298 124" fill="none">
-              <path d="M36 21v79m-8-72 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7M36 101h234" stroke="#b7a99b" stroke-width="1.5"/>
+              <path d="M36 21v79m-8-72 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7m-8 21 8-7M36 101h234" stroke="var(--diagram-neutral)" stroke-width="1.5"/>
               <path class="system-spring" d="M36 43h14l8-10 12 20 12-20 12 20 12-20 12 20 12-20 12 20 8-10h16" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M36 78h52m28-10H88v20h28" stroke="#71685f" stroke-width="2"/>
-              <path class="system-damper" d="M116 78h50" stroke="#71685f" stroke-width="2"/>
-              <g class="system-mass"><rect x="166" y="28" width="54" height="66" rx="7" fill="#fffdf9" stroke="currentColor" stroke-width="2"/><circle cx="178" cy="97" r="3" fill="#b7a99b"/><circle cx="208" cy="97" r="3" fill="#b7a99b"/></g>
+              <path d="M36 78h52m28-10H88v20h28" stroke="var(--muted)" stroke-width="2"/>
+              <path class="system-damper" d="M116 78h50" stroke="var(--muted)" stroke-width="2"/>
+              <g class="system-mass"><rect x="166" y="28" width="54" height="66" rx="7" fill="var(--surface)" stroke="currentColor" stroke-width="2"/><circle cx="178" cy="97" r="3" fill="var(--diagram-neutral)"/><circle cx="208" cy="97" r="3" fill="var(--diagram-neutral)"/></g>
             </svg>
           </div>
-          <h3>Engineering goes beyond code.</h3><p>Built around physical constraints and engineering requirements.</p><a class="difference-link" href="https://arxiv.org/abs/2608.23653">Read the methods <span aria-hidden="true">↗</span></a>
+          <h3>Engineering goes beyond code.</h3><p>A workspace for engineering decisions, built around physical constraints and requirements.</p><a class="difference-link" href="https://arxiv.org/abs/2608.23653">Read the methods <span aria-hidden="true">↗</span></a>
         </article>
         <article class="difference-item">
           <span class="feature-label">Privacy</span>
           <div class="feature-visual privacy-visual" aria-hidden="true">
             <div class="local-computer"><div class="computer-screen"><span class="computer-app">Pufibara</span><span class="computer-files"><svg viewBox="0 0 36 30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 7V3h13l7 7v15h-5M21 3v7h7"/><path d="M3 9h12l7 7v12H3zM15 9v7h7M7 21h11"/></svg>Your files</span></div><span>Your computer</span></div>
-            <div class="llm-choice"><div class="llm-options"><span>API</span><span>Local LLM</span></div><span>Your choice of LLM</span></div>
+            <div class="llm-choice">
+              <div class="llm-options"><span>API Key</span><span>Local LLM</span><span>Subscription</span></div>
+              <span>Your choice</span>
+            </div>
           </div>
-          <h3>Your data. Your control.</h3><p>Runs on your computer. Choose an API-based or local LLM.</p>
+          <h3>Your data. Your control.</h3><p>Pufibara runs locally. Use an API key, a local LLM, or your subscription (ChatGPT/Claude).</p>
         </article>
         <article class="difference-item">
           <span class="feature-label">Performance</span>
@@ -120,10 +137,16 @@
           <span class="feature-label">Software-agnostic</span>
           <div class="feature-visual tools-visual" aria-hidden="true">
             <span class="visual-chip agent-hub">AGENT</span>
-            <svg viewBox="0 0 60 100" fill="none" preserveAspectRatio="none"><path pathLength="1" d="M0 50h24m0 0V14h36M24 50h36m-36 0v36h36" stroke="#ed7a28" stroke-width="1.5"/></svg>
+            <svg viewBox="0 0 60 130" fill="none" stroke="var(--orange)" stroke-width="1.5" preserveAspectRatio="none">
+              <path d="M0 65h60M24 17v96m0-96h36m-36 96h36"/>
+            </svg>
             <div class="tool-destinations"><span class="visual-chip">Software A</span><span class="visual-chip">Software B</span><span class="visual-chip">Software C</span></div>
+            <svg class="tool-exchange" viewBox="0 0 24 130" fill="none" stroke="var(--orange)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 17h10q7 0 7 7v24q0 7-7 7H3M3 75h10q7 0 7 7v24q0 7-7 7H3" stroke-dasharray="2 2.5" stroke-opacity=".66"/>
+              <path d="M7 14l-4 3 4 3m0 32-4 3 4 3m0 14-4 3 4 3m0 32-4 3 4 3" stroke-opacity=".8"/>
+            </svg>
           </div>
-          <h3>One agent. Different tools.</h3><p>Works across tools without being tied to any one.</p>
+          <h3>One agent. Different tools.</h3><p>Not tied to any single tool. Connect multiple tools for complex workflows.</p>
         </article>
       </div>
     </section>
@@ -158,23 +181,20 @@
       </div>
     </section>
     <section class="pilot-section wrap" id="pilot" aria-labelledby="pilot-title">
-      <div class="pilot-copy">
-        <h2 id="pilot-title">Get <span class="accent">Early Access</span></h2>
-        <p>Tell us how Pufibara could help your workflow.</p>
-      </div>
+      <h2 id="pilot-title">Get <span class="accent">Early Access</span></h2>
       <form class="pilot-form" action="https://formsubmit.co/zizhe.wang@tu-dresden.de" method="POST" accept-charset="UTF-8" aria-label="Early access request" data-success-page="thanks.html" data-submitting="Submitting…">
         <input type="hidden" name="_subject" value="Pufibara — Early access request">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="page_language" value="English">
-        <div class="form-row">
-          <div class="form-field"><label for="pilot-name">Name <span aria-hidden="true">*</span></label><input id="pilot-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
-          <div class="form-field"><label for="pilot-email">Email address <span aria-hidden="true">*</span></label><input id="pilot-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+        <div class="form-field">
+          <label for="pilot-email">Email address</label>
+          <input id="pilot-email" name="email" type="email" autocomplete="email" maxlength="254" required>
         </div>
-        <div class="form-field"><label for="pilot-company">Company / Organization <span aria-hidden="true">*</span></label><input id="pilot-company" name="company" type="text" autocomplete="organization" placeholder="e.g. Industry 404 GmbH" maxlength="200" required></div>
-        <div class="form-field"><label for="pilot-area">Application area <span aria-hidden="true">*</span></label><input id="pilot-area" name="application_area" type="text" placeholder="e.g. energy, building, aerospace, automobile" maxlength="200" required></div>
-        <div class="form-field"><label for="pilot-workflow">How could Pufibara help your workflow? <span aria-hidden="true">*</span></label><textarea id="pilot-workflow" name="workflow_needs" rows="4" placeholder="What do you model and simulate? What takes the most effort today? How could an AI engineering agent help you?" maxlength="4000" required></textarea></div>
-        <p class="form-note" id="pilot-privacy">Fields marked * are required.</p>
-        <button class="button primary" type="submit" aria-describedby="pilot-privacy">Get Early Access <span aria-hidden="true">→</span></button>
+        <div class="form-field">
+          <label for="pilot-workflow">Anything you’d like to tell Pufibara? (optional)</label>
+          <textarea id="pilot-workflow" name="workflow_needs" rows="2" maxlength="4000"></textarea>
+        </div>
+        <button class="button primary" type="submit">Get Early Access <span aria-hidden="true">→</span></button>
         <p class="pilot-email">Or just drop me a line at <a href="mailto:wangzizhe.hi@gmail.com">wangzizhe.hi@gmail.com</a>.</p>
       </form>
     </section>
