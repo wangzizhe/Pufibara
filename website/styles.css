@@ -344,12 +344,13 @@ body::after {
   .site-header { min-height: 72px; gap: 12px; }
   .wordmark { font-size: 22px; }
   .brand-icon { width: 31px; height: 34px; margin-right: 2px; }
-  .site-header nav { gap: 8px; }
+  .site-header nav { gap: 0; }
+  .site-header nav > .theme-control > summary, .mobile-nav > summary { width: 40px; }
   .site-header .desktop-nav-link { display: none; }
   .theme-options button { min-height: 44px; }
   .site-header nav > a.nav-pilot { display: inline-flex; align-items: center; min-height: 44px; white-space: nowrap; }
-  .mobile-nav { display: block; }
-  .mobile-nav > summary { display: grid; place-items: center; width: 44px; height: 44px; border-radius: var(--radius-control); cursor: pointer; list-style: none; }
+  .mobile-nav { display: block; margin-inline-start: 11px; }
+  .mobile-nav > summary { display: grid; place-items: center; height: 44px; border-radius: var(--radius-control); cursor: pointer; list-style: none; }
   .mobile-nav > summary::-webkit-details-marker { display: none; }
   .mobile-nav > summary:focus-visible { outline: 2px solid var(--orange); }
   .mobile-nav > summary span { width: 18px; height: 12px; border-block: 2px solid currentColor; position: relative; }
@@ -383,7 +384,7 @@ body::after {
 }
 @media (max-width: 390px) {
   .site-header.wrap { width: calc(100% - 28px); gap: 8px; }
-  .site-header nav { gap: 2px; font-size: 13px; }
+  .site-header nav { font-size: 13px; }
   .wordmark { font-size: 18px; }
   .brand-icon { width: 28px; }
 }
