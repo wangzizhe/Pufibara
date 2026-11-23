@@ -32,12 +32,13 @@ function animateMetric(element) {
 }
 
 if ('IntersectionObserver' in window) {
-  const sections = new WeakMap();
-  const pending = new Set();
-  function revealSections(entries) {
+  const pending = new Map();
+  function revealSections(entries, source) {
+    if (source !== observer) return;
     for (const entry of entries) {
       if (!entry.isIntersecting || entry.intersectionRatio < 0.6) continue;
-      const section = sections.get(entry.target);
+      const section = pending.get(entry.target);
+      if (!section) continue;
       section.classList.add('is-visible');
       if (!reducedMotion.matches) {
         section.querySelectorAll('.metric-number').forEach(animateMetric);
@@ -61,14 +62,13 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('#engineering, #demo, #benchmark, .difference-item').forEach((section) => {
     const trigger = section.querySelector('.feature-visual, h2');
     if (!trigger) return;
-    sections.set(trigger, section);
-    pending.add(trigger);
+    pending.set(trigger, section);
     observer.observe(trigger);
   });
   function refreshObserver() {
     observer.disconnect();
     observer = createObserver();
-    pending.forEach((trigger) => observer.observe(trigger));
+    for (const trigger of pending.keys()) observer.observe(trigger);
   }
   window.addEventListener('resize', refreshObserver);
 }
