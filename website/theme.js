@@ -3,8 +3,9 @@
   const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const storageKey = 'pufibara-theme';
-  let theme = 'system';
-  let darkMascot;
+  let theme;
+  let toggle;
+  const mascotReady = {};
 
   try {
     const saved = localStorage.getItem(storageKey);
@@ -13,63 +14,55 @@
     // The theme still works when browser storage is unavailable.
   }
 
-  function applyTheme() {
-    const dark = theme === 'dark' || (theme === 'system' && systemTheme.matches);
-    root.dataset.theme = dark ? 'dark' : 'light';
-    themeColor.content = dark ? '#211d19' : '#fcf9f4';
-    if (darkMascot) darkMascot.media = dark ? 'all' : 'not all';
+  function systemScheme() {
+    return systemTheme.matches ? 'dark' : 'light';
+  }
+
+  function selectedScheme() {
+    return theme ?? systemScheme();
+  }
+
+  function oppositeScheme(scheme) {
+    return scheme === 'dark' ? 'light' : 'dark';
+  }
+
+  function updateToggle() {
+    if (!toggle) return;
+    const label = `Switch to ${oppositeScheme(root.dataset.theme)} theme`;
+    toggle.setAttribute('aria-label', label);
+    toggle.title = label;
+  }
+
+  async function applyTheme() {
+    const scheme = selectedScheme();
+    if (mascotReady[scheme]) await mascotReady[scheme];
+    if (scheme !== selectedScheme()) return;
+    root.dataset.theme = scheme;
+    themeColor.content = scheme === 'dark' ? '#211d19' : '#fcf9f4';
+    updateToggle();
   }
 
   applyTheme();
   systemTheme.addEventListener('change', applyTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
-    darkMascot = document.querySelector('#dark-mascot');
-    applyTheme();
-    const control = document.querySelector('.theme-control');
-    const summary = control.querySelector('summary');
-    const options = control.querySelectorAll('button[data-choice]');
-
-    function updateControl() {
-      control.dataset.choice = theme;
-      for (const option of options) {
-        const selected = option.dataset.choice === theme;
-        option.setAttribute('aria-pressed', String(selected));
-        if (selected) summary.setAttribute('aria-label', `Color theme: ${option.textContent.trim()}`);
-      }
+    for (const image of document.querySelectorAll('[data-mascot-theme]')) {
+      mascotReady[image.dataset.mascotTheme] = image.decode().catch(() => {});
     }
-
-    function closeMenu() {
-      control.open = false;
-      summary.focus();
-    }
-
-    updateControl();
-    control.hidden = false;
-    control.addEventListener('click', (event) => {
-      const option = event.target.closest('button[data-choice]');
-      if (!option) return;
-      theme = option.dataset.choice;
+    toggle = document.querySelector('.theme-toggle');
+    updateToggle();
+    toggle.hidden = false;
+    toggle.addEventListener('click', () => {
+      const next = oppositeScheme(selectedScheme());
+      theme = next === systemScheme() ? undefined : next;
+      document.querySelector('.mobile-nav[open]')?.removeAttribute('open');
       applyTheme();
-      updateControl();
-      closeMenu();
       try {
-        if (theme === 'system') localStorage.removeItem(storageKey);
-        else localStorage.setItem(storageKey, theme);
+        if (theme) localStorage.setItem(storageKey, theme);
+        else localStorage.removeItem(storageKey);
       } catch {
         // Keep the selected theme for this page.
       }
-    });
-    control.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape' || !control.open) return;
-      event.preventDefault();
-      closeMenu();
-    });
-    document.addEventListener('click', (event) => {
-      if (control.open && !control.contains(event.target)) control.open = false;
-    });
-    summary.addEventListener('click', () => {
-      document.querySelector('.mobile-nav[open]')?.removeAttribute('open');
     });
   });
 })();

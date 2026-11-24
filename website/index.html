@@ -7,8 +7,8 @@
   <meta name="description" content="Pufibara is an AI agent for physical systems modeling and simulation, currently focused on Modelica workflows. Explore the ideas, paper, and public benchmark.">
   <title>Pufibara — AI Agent for Physical Systems Modeling and Simulation</title>
   <link rel="icon" href="assets/mascot-topper.svg" type="image/svg+xml">
-  <script src="theme.js?v=3"></script>
-  <link rel="stylesheet" href="styles.css?v=mobile-nav-spacing-2">
+  <script src="theme.js?v=5"></script>
+  <link rel="stylesheet" href="styles.css?v=header-spacing-1">
   <link rel="preload" href="assets/fonts/Montserrat-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <script src="pilot-form.js" defer></script>
   <script src="demo-video.js" defer></script>
@@ -31,14 +31,7 @@
           <a href="#benchmark">Performance</a>
         </div>
       </details>
-      <details class="theme-control" hidden>
-        <summary aria-label="Color theme: System" title="Color theme"><span class="theme-icon" aria-hidden="true"></span></summary>
-        <div class="theme-options" role="group" aria-label="Color theme">
-          <button type="button" data-choice="system" aria-pressed="true"><span class="theme-icon" aria-hidden="true"></span>System</button>
-          <button type="button" data-choice="light" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Light</button>
-          <button type="button" data-choice="dark" aria-pressed="false"><span class="theme-icon" aria-hidden="true"></span>Dark</button>
-        </div>
-      </details>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme" hidden></button>
     </nav>
   </header>
   <main id="main">
@@ -53,10 +46,8 @@
       </div>
       <figure class="hero-art">
         <a class="mascot-link" href="#demo" aria-label="Watch the Pufibara demo">
-          <picture>
-            <source id="dark-mascot" media="(prefers-color-scheme: dark)" srcset="assets/pufibara-dark.jpg">
-            <img src="assets/pufibara.webp?v=mascot-2" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high">
-          </picture>
+          <img data-mascot-theme="light" src="assets/pufibara.webp?v=mascot-2" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960" fetchpriority="high">
+          <img data-mascot-theme="dark" src="assets/pufibara-dark.jpg" alt="The Pufibara mascot: a fluffy capybara with an orange ornament on its head" width="960" height="960">
         </a>
       </figure>
     </section>
